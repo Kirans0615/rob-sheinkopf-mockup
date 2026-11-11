@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rob Sheinkopf — Baseball Imposters &amp; the Men Who Faked the Majors</title>
+<meta name="description" content="Rob Sheinkopf spent 40 years tracking men who falsely claimed Major League careers. Read Baseball Imposters and Hey Mom, Wanna Have a Catch?, and share your own imposter story.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a15;
+    --ink-soft:#3a362c;
+    --paper:#f4ede0;
+    --paper-dim:#e9e0cd;
+    --paper-card:#fbf7ee;
+    --navy:#1d2d44;
+    --navy-deep:#132032;
+    --brass:#a9762f;
+    --brass-bright:#c98a34;
+    --clay:#8a3324;
+    --line:#d8cdb2;
+    --shadow:0 20px 50px -25px rgba(19,32,50,0.45);
+    --sp-1:4px; --sp-2:8px; --sp-3:16px; --sp-4:24px; --sp-5:32px; --sp-6:48px; --sp-7:64px; --sp-8:96px;
+    --ff-display:'Fraunces', serif;
+    --ff-mono:'Courier Prime', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--ff-mono);
+    font-size:16px;
+    line-height:1.65;
+    color:var(--ink);
+    background:var(--paper);
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3,h4{font-family:var(--ff-display);font-weight:600;line-height:1.08;margin:0;color:var(--navy-deep);}
+  p{margin:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:var(--sp-5);}
+  section{position:relative;}
+  .eyebrow{
+    font-family:var(--ff-mono);
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.74rem;
+    font-weight:700;
+    color:var(--brass);
+  }
+  .italic-accent{font-style:italic;color:var(--brass-bright);}
+  button, .btn{font-family:var(--ff-mono);cursor:pointer;}
+  :focus-visible{outline:3px solid var(--brass-bright);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(244,237,224,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:padding 0.25s ease, box-shadow 0.25s ease;
+  }
+  header.site-nav.scrolled{box-shadow:0 8px 24px -16px rgba(19,32,50,0.35);}
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:18px var(--sp-5);
+    display:flex;align-items:center;justify-content:space-between;
+    transition:padding 0.25s ease;
+  }
+  header.site-nav.scrolled .nav-inner{padding-block:10px;}
+  .wordmark{display:flex;align-items:baseline;gap:10px;text-decoration:none;}
+  .wordmark .mark{
+    font-family:var(--ff-display);font-weight:700;font-size:1.65rem;color:var(--navy-deep);
+    letter-spacing:-0.01em;
+  }
+  .wordmark .mark em{font-style:italic;color:var(--clay);}
+  .wordmark .sub{font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);}
+  nav.primary{display:flex;align-items:center;gap:var(--sp-6);}
+  nav.primary ul{list-style:none;display:flex;gap:var(--sp-5);margin:0;padding:0;}
+  nav.primary a{
+    text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;
+    font-weight:700;color:var(--ink-soft);position:relative;padding-bottom:4px;
+  }
+  nav.primary a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--clay);
+    transition:width 0.25s ease;
+  }
+  nav.primary a:hover::after,nav.primary a:focus-visible::after{width:100%;}
+  .nav-cta{
+    background:var(--clay);color:#fff8ec;padding:11px 22px;border-radius:3px;text-decoration:none;
+    font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;border:none;
+    box-shadow:0 10px 24px -12px rgba(138,51,36,0.6);
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px);background:#9c3a28;box-shadow:0 14px 28px -12px rgba(138,51,36,0.75);}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:8px;}
+  .hamburger span{width:26px;height:2px;background:var(--navy-deep);display:block;transition:all 0.25s ease;}
+  .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width: 880px){
+    nav.primary ul{display:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    nav.primary{gap:0;}
+    .mobile-menu{
+      position:fixed;inset:0 0 0 auto;width:min(82vw,340px);height:100vh;background:var(--paper-card);
+      transform:translateX(100%);transition:transform 0.3s ease;z-index:1100;
+      padding:var(--sp-6) var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-5);
+      box-shadow:-20px 0 50px -20px rgba(0,0,0,0.4);
+    }
+    .mobile-menu.open{transform:translateX(0);}
+    .mobile-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--sp-4);}
+    .mobile-menu a{text-decoration:none;font-size:1.1rem;font-weight:700;color:var(--navy-deep);}
+    .mobile-menu .nav-cta{display:inline-block;text-align:center;}
+    .menu-backdrop{position:fixed;inset:0;background:rgba(19,22,15,0.5);opacity:0;pointer-events:none;transition:opacity 0.3s ease;z-index:1050;}
+    .menu-backdrop.open{opacity:1;pointer-events:auto;}
+    .menu-close{align-self:flex-end;background:none;border:none;font-size:1.8rem;color:var(--navy-deep);line-height:1;}
+  }
+  @media (min-width:881px){.mobile-menu,.menu-backdrop{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:92vh;display:flex;align-items:center;
+    background:var(--navy-deep);overflow:hidden;
+  }
+  .hero-media{position:absolute;inset:0;z-index:0;}
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;object-position:32% 62%;
+    animation:kenburns 18s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{from{transform:scale(1.0) translate(0,0);}to{transform:scale(1.13) translate(-1.5%,-1%);}}
+  .hero-media::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(100deg, rgba(19,32,50,0.94) 0%, rgba(19,32,50,0.82) 34%, rgba(19,32,50,0.55) 58%, rgba(19,32,50,0.3) 100%),
+               linear-gradient(0deg, rgba(10,16,26,0.55), transparent 45%);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:var(--sp-8) var(--sp-5);width:100%;}
+  .hero-grid{display:grid;grid-template-columns:1.25fr 0.85fr;gap:var(--sp-7);align-items:center;}
+  .hero-eyebrow{color:var(--brass-bright);font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:var(--sp-3);display:block;}
+  .hero h1{
+    font-size:clamp(2.5rem, 5.2vw, 4.1rem);color:#fbf4e3;letter-spacing:-0.01em;
+  }
+  .hero h1 em{font-style:italic;color:#e3a856;}
+  .hero .hook{
+    font-family:var(--ff-display);font-style:italic;font-weight:500;
+    font-size:clamp(1.15rem,1.9vw,1.5rem);color:#f1e6cf;margin-top:var(--sp-4);max-width:34ch;
+  }
+  .hero .desc{color:#cdd7e3;max-width:46ch;margin-top:var(--sp-4);font-size:0.98rem;}
+  .hero-ctas{display:flex;gap:var(--sp-3);margin-top:var(--sp-6);flex-wrap:wrap;align-items:center;}
+  .btn-primary{
+    background:var(--clay);color:#fff8ec;padding:17px 30px;border-radius:3px;border:none;
+    font-weight:700;font-size:0.92rem;letter-spacing:0.03em;text-transform:uppercase;
+    box-shadow:0 16px 32px -14px rgba(138,51,36,0.7);position:relative;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 38px -14px rgba(138,51,36,0.85);}
+  .btn-ghost{
+    background:transparent;color:#f1e6cf;padding:16px 28px;border-radius:3px;border:1.5px solid rgba(241,230,207,0.5);
+    font-weight:700;font-size:0.9rem;letter-spacing:0.03em;text-transform:uppercase;text-decoration:none;
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-ghost:hover{background:rgba(241,230,207,0.12);border-color:#f1e6cf;}
+  .hero-note{margin-top:var(--sp-3);font-size:0.78rem;color:#9fb0c3;letter-spacing:0.02em;}
+
+  .hero-card{
+    background:var(--paper-card);border-radius:4px;padding:var(--sp-5);box-shadow:var(--shadow);
+    transform:rotate(1.2deg);
+  }
+  .hero-card .cover{
+    width:100%;aspect-ratio:2/3;border-radius:2px;
+    background:linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 55%, #0c1420 100%);
+    display:flex;flex-direction:column;justify-content:space-between;padding:var(--sp-4);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08), 0 14px 30px -14px rgba(0,0,0,0.6);
+    color:#f1e6cf;position:relative;overflow:hidden;
+  }
+  .hero-card .cover::before{
+    content:'';position:absolute;inset:0;
+    background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 10px);
+  }
+  .hero-card .cover .top-tag{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--brass-bright);position:relative;}
+  .hero-card .cover .cover-title{font-family:var(--ff-display);font-size:1.7rem;font-weight:700;line-height:1.05;position:relative;}
+  .hero-card .cover .cover-title em{font-style:italic;color:var(--brass-bright);display:block;font-size:1rem;margin-top:6px;letter-spacing:0.04em;}
+  .hero-card .cover .author-line{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:#cdd7e3;position:relative;}
+  .hero-card .caption{margin-top:var(--sp-3);display:flex;justify-content:space-between;align-items:center;font-size:0.76rem;color:var(--ink-soft);}
+  .hero-card .caption .stamp{
+    font-family:var(--ff-mono);font-weight:700;color:var(--clay);border:1.5px solid var(--clay);
+    padding:3px 8px;border-radius:2px;letter-spacing:0.05em;transform:rotate(-4deg);
+  }
+
+  /* ---------- CREDIBILITY STRIP ---------- */
+  .credibility{background:var(--navy-deep);color:#e8e1cf;padding:var(--sp-5) 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .cred-row{display:flex;flex-wrap:wrap;gap:var(--sp-6);align-items:center;justify-content:space-between;}
+  .cred-item{display:flex;align-items:center;gap:12px;font-size:0.82rem;letter-spacing:0.03em;color:#cdd7e3;flex:1 1 220px;}
+  .cred-item .ico{width:34px;height:34px;flex:none;border-radius:50%;background:rgba(201,138,52,0.18);display:flex;align-items:center;justify-content:center;color:var(--brass-bright);font-size:1.05rem;}
+  .cred-item strong{color:#fbf4e3;display:block;font-family:var(--ff-display);font-size:0.95rem;font-weight:600;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  .section{padding:var(--sp-8) 0;}
+  .section-head{max-width:640px;margin-bottom:var(--sp-7);}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:var(--sp-2);}
+  .section-head p{margin-top:var(--sp-3);color:var(--ink-soft);font-size:1rem;max-width:56ch;}
+  .reveal{opacity:1;transform:none;}
+  .js-reveal .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease, transform 0.6s ease;}
+  .js-reveal .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- BOOKS (asymmetric editorial) ---------- */
+  .books{background:var(--paper-dim);}
+  .book-feature{display:grid;grid-template-columns:0.9fr 1.1fr;gap:var(--sp-7);align-items:center;margin-bottom:var(--sp-8);}
+  .book-feature.reverse{grid-template-columns:1.1fr 0.9fr;}
+  .book-feature.reverse .book-visual{order:2;}
+  .book-visual{position:relative;}
+  .book-visual .cover-lg{
+    aspect-ratio:2/3;max-width:320px;margin:0 auto;border-radius:3px;
+    display:flex;flex-direction:column;justify-content:space-between;padding:var(--sp-5);
+    box-shadow:0 30px 50px -22px rgba(19,32,50,0.5);color:#f6efe0;position:relative;overflow:hidden;
+    transition:transform 0.4s ease;
+  }
+  .book-feature:hover .cover-lg{transform:translateY(-6px) rotate(-0.6deg);}
+  .cover-lg.dark{background:linear-gradient(165deg,#1d2d44, #0c1420 80%);}
+  .cover-lg.warm{background:linear-gradient(165deg,#5c2f22, #2c140d 85%);}
+  .cover-lg::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 10px);}
+  .cover-lg .top-tag{position:relative;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--brass-bright);}
+  .cover-lg .cv-title{position:relative;font-family:var(--ff-display);font-size:2rem;font-weight:700;line-height:1.05;}
+  .cover-lg .cv-title em{display:block;font-style:italic;color:var(--brass-bright);font-size:1.05rem;margin-top:8px;}
+  .cover-lg .cv-author{position:relative;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:#d8d2bf;}
+  .book-copy .eyebrow{display:block;margin-bottom:var(--sp-2);}
+  .book-copy h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:var(--sp-3);}
+  .book-copy p{color:var(--ink-soft);margin-bottom:var(--sp-3);}
+  .book-copy .quote{
+    font-family:var(--ff-display);font-style:italic;color:var(--navy-deep);font-size:1.08rem;
+    border-left:3px solid var(--brass);padding-left:var(--sp-4);margin:var(--sp-4) 0;
+  }
+  .book-copy .book-ctas{display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-top:var(--sp-4);}
+  .btn-buy{
+    background:var(--clay);color:#fff8ec;padding:14px 24px;border-radius:3px;border:none;font-weight:700;
+    font-size:0.85rem;text-transform:uppercase;letter-spacing:0.03em;box-shadow:0 12px 24px -12px rgba(138,51,36,0.6);
+    transition:transform 0.2s ease;
+  }
+  .btn-buy:hover{transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;color:var(--navy-deep);padding:13px 22px;border-radius:3px;border:1.5px solid var(--navy-deep);
+    font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.03em;text-decoration:none;
+    transition:background 0.2s ease,color 0.2s ease;
+  }
+  .btn-outline:hover{background:var(--navy-deep);color:#fff8ec;}
+
+  /* ---------- Retailer modal ---------- */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(19,22,15,0.6);display:none;align-items:center;justify-content:center;z-index:2000;padding:var(--sp-4);}
+  .modal-backdrop.open{display:flex;}
+  .modal{background:var(--paper-card);border-radius:6px;max-width:420px;width:100%;padding:var(--sp-6);box-shadow:0 40px 70px -30px rgba(0,0,0,0.6);position:relative;}
+  .modal h3{font-size:1.4rem;margin-bottom:6px;}
+  .modal p{color:var(--ink-soft);font-size:0.88rem;margin-bottom:var(--sp-4);}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.5rem;color:var(--ink-soft);}
+  .retailer-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .retailer-list a{
+    display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border:1.5px solid var(--line);
+    border-radius:4px;text-decoration:none;color:var(--navy-deep);font-weight:700;font-size:0.92rem;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .retailer-list a:hover{border-color:var(--clay);background:#fff;}
+  .retailer-list a span.arrow{color:var(--clay);}
+
+  /* ---------- CREDIBILITY MARKERS GRID ---------- */
+  .markers{padding:var(--sp-8) 0;background:var(--paper);}
+  .marker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);}
+  .marker-card{
+    background:var(--paper-card);border:1px solid var(--line);border-radius:4px;padding:var(--sp-5);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .marker-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .marker-card .num{font-family:var(--ff-display);font-size:2.4rem;color:var(--brass);font-weight:700;}
+  .marker-card h4{font-size:1.05rem;margin-top:var(--sp-2);margin-bottom:var(--sp-2);}
+  .marker-card p{color:var(--ink-soft);font-size:0.88rem;}
+  .markers-head{display:grid;grid-template-columns:1fr auto;gap:var(--sp-6);align-items:end;margin-bottom:var(--sp-7);}
+  .archival-photo{position:relative;width:220px;flex:none;}
+  .archival-photo img{border-radius:3px;box-shadow:var(--shadow);filter:sepia(0.25) contrast(1.05);}
+  .archival-photo figcaption{margin-top:8px;font-size:0.72rem;color:var(--ink-soft);letter-spacing:0.02em;text-align:center;}
+  @media (max-width:880px){.markers-head{grid-template-columns:1fr;}.archival-photo{width:100%;max-width:280px;}}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--navy-deep);color:#e8e1cf;padding:var(--sp-8) 0;position:relative;}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);}
+  .t-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:var(--sp-5);}
+  .t-card .stars{color:var(--brass-bright);letter-spacing:3px;margin-bottom:var(--sp-3);}
+  .t-card p.quote-txt{font-family:var(--ff-display);font-style:italic;font-size:1.05rem;color:#f6efe0;margin-bottom:var(--sp-4);}
+  .t-card .who{font-size:0.8rem;color:#9fb0c3;letter-spacing:0.03em;}
+  .t-card .who strong{color:#f1e6cf;}
+
+  /* ---------- IMPOSTER STORY SECTION (bento) ---------- */
+  .imposter{background:var(--paper-dim);}
+  .bento{display:grid;grid-template-columns:1.15fr 0.85fr;gap:var(--sp-5);}
+  .bento-form{
+    background:var(--paper-card);border:1px solid var(--line);border-radius:6px;padding:var(--sp-6);
+    box-shadow:var(--shadow);
+  }
+  .bento-form h3{font-size:1.5rem;margin-bottom:var(--sp-2);}
+  .bento-form > p{color:var(--ink-soft);margin-bottom:var(--sp-5);font-size:0.92rem;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin-bottom:var(--sp-4);}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:0.76rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-soft);}
+  .field input,.field textarea{
+    font-family:var(--ff-mono);font-size:0.95rem;padding:12px 14px;border-radius:3px;border:1.5px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--brass);outline:none;}
+  .field textarea{resize:vertical;min-height:110px;}
+  .form-note{font-size:0.78rem;color:var(--ink-soft);margin-top:var(--sp-3);}
+
+  .bento-side{display:flex;flex-direction:column;gap:var(--sp-4);}
+  .case-card{
+    background:var(--paper-card);border:1px solid var(--line);border-radius:6px;padding:var(--sp-5);
+    position:relative;overflow:hidden;transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .case-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .case-card .tag{
+    display:inline-block;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+    color:var(--clay);border:1px solid var(--clay);padding:3px 9px;border-radius:2px;margin-bottom:var(--sp-3);
+  }
+  .case-card h4{font-size:1.1rem;margin-bottom:6px;}
+  .case-card p{color:var(--ink-soft);font-size:0.88rem;}
+  .case-card .file-no{position:absolute;top:var(--sp-4);right:var(--sp-4);font-family:var(--ff-mono);font-size:0.72rem;color:var(--line);font-weight:700;}
+
+  /* ---------- HISTORY / ABOUT split with overlap ---------- */
+  .about{background:var(--paper);overflow:visible;}
+  .about-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:var(--sp-7);align-items:start;}
+  .about-media{position:relative;}
+  .about-media img{border-radius:4px;box-shadow:var(--shadow);width:100%;}
+  .about-media .float-card{
+    position:absolute;bottom:-28px;left:-28px;background:var(--paper-card);border:1px solid var(--line);
+    border-radius:4px;padding:var(--sp-4) var(--sp-5);box-shadow:var(--shadow);max-width:260px;
+  }
+  .about-media .float-card .big{font-family:var(--ff-display);font-size:2.2rem;font-weight:700;color:var(--clay);}
+  .about-media .float-card span{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.02em;}
+  .about-copy h2{font-size:clamp(1.9rem,3.2vw,2.6rem);margin-bottom:var(--sp-4);}
+  .about-copy p{color:var(--ink-soft);margin-bottom:var(--sp-3);}
+  .about-copy .bio-facts{list-style:none;margin:var(--sp-5) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--sp-3);}
+  .about-copy .bio-facts li{display:flex;gap:12px;align-items:flex-start;font-size:0.92rem;color:var(--ink-soft);}
+  .about-copy .bio-facts li::before{content:'⚾';flex:none;}
+
+  /* ---------- NEWSLETTER / FINAL CTA ---------- */
+  .newsletter{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-deep) 100%);color:#f1e6cf;
+    padding:var(--sp-8) 0;position:relative;overflow:hidden;
+  }
+  .newsletter::before{
+    content:'';position:absolute;inset:0;opacity:0.12;
+    background-image:repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 26px);
+  }
+  .nl-inner{position:relative;display:grid;grid-template-columns:1.1fr 0.9fr;gap:var(--sp-7);align-items:center;}
+  .nl-inner h2{color:#fbf4e3;font-size:clamp(1.8rem,3vw,2.4rem);}
+  .nl-inner p{color:#cdd7e3;margin-top:var(--sp-3);max-width:46ch;}
+  .nl-form{display:flex;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,0.06);padding:var(--sp-3);border-radius:5px;border:1px solid rgba(255,255,255,0.15);}
+  .nl-form input{
+    flex:1 1 200px;padding:14px 16px;border-radius:3px;border:none;font-family:var(--ff-mono);font-size:0.92rem;
+  }
+  .nl-form button{
+    background:var(--clay);color:#fff8ec;border:none;padding:14px 22px;border-radius:3px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.03em;font-size:0.84rem;transition:transform 0.2s ease;
+  }
+  .nl-form button:hover{transform:translateY(-2px);}
+
+  /* ---------- EVENTS / CONTACT ---------- */
+  .events{background:var(--paper-dim);}
+  .event-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .event-row{
+    display:grid;grid-template-columns:140px 1fr auto;gap:var(--sp-5);align-items:center;
+    padding:var(--sp-5) 0;border-bottom:1px solid var(--line);
+  }
+  .event-row .date{font-family:var(--ff-display);font-weight:700;color:var(--navy-deep);}
+  .event-row .date small{display:block;font-family:var(--ff-mono);font-weight:400;font-size:0.72rem;color:var(--brass);text-transform:uppercase;letter-spacing:0.08em;}
+  .event-row h4{font-size:1.05rem;margin-bottom:4px;}
+  .event-row p{color:var(--ink-soft);font-size:0.86rem;}
+
+  footer{background:var(--navy-deep);color:#cdd7e3;padding:var(--sp-7) 0 var(--sp-5);}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 0.8fr 0.8fr 1fr;gap:var(--sp-6);}
+  .footer-grid h5{color:#f1e6cf;font-family:var(--ff-mono);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--sp-4);}
+  .footer-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-grid a{color:#cdd7e3;text-decoration:none;font-size:0.88rem;}
+  .footer-grid a:hover{color:#f1e6cf;}
+  .footer-wordmark{font-family:var(--ff-display);font-weight:700;font-size:1.5rem;color:#f6efe0;}
+  .footer-wordmark em{font-style:italic;color:var(--brass-bright);}
+  .footer-bottom{
+    margin-top:var(--sp-7);padding-top:var(--sp-5);border-top:1px solid rgba(255,255,255,0.1);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3);font-size:0.78rem;color:#8fa0b3;
+  }
+
+  /* counters */
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-5);margin-top:var(--sp-7);}
+  .stat{text-align:center;}
+  .stat .figure{font-family:var(--ff-display);font-weight:700;font-size:clamp(2rem,4vw,2.8rem);color:var(--navy-deep);}
+  .stat .figure .suffix{color:var(--clay);}
+  .stat .label{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;text-transform:uppercase;margin-top:4px;}
+
+  @media (max-width: 980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-card{max-width:320px;margin:var(--sp-6) auto 0;transform:none;}
+    .book-feature,.book-feature.reverse{grid-template-columns:1fr;}
+    .book-feature.reverse .book-visual{order:0;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-media .float-card{position:static;margin-top:var(--sp-4);max-width:none;}
+    .marker-grid{grid-template-columns:1fr;}
+    .t-grid{grid-template-columns:1fr;}
+    .bento{grid-template-columns:1fr;}
+    .nl-inner{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .stat-strip{grid-template-columns:1fr 1fr;}
+    .cred-row{justify-content:flex-start;}
+  }
+  @media (max-width:560px){
+    .form-row{grid-template-columns:1fr;}
+    .event-row{grid-template-columns:1fr;gap:var(--sp-2);}
+    .footer-grid{grid-template-columns:1fr;}
+    .wrap{padding-inline:var(--sp-4);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark">
+      <span class="mark">Rob <em>Sheinkopf</em></span>
+    </a>
+    <nav class="primary">
+      <ul>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#imposter-stories">Imposter Stories</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#buy" class="nav-cta" id="navBuyBtn">Buy the Book</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" id="menuCloseBtn" aria-label="Close menu">&times;</button>
+  <ul>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#imposter-stories">Imposter Stories</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#giveaway">Giveaway</a></li>
+  </ul>
+  <a href="#buy" class="nav-cta" id="mobileBuyBtn">Buy the Book</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <img src="assets/hero-glove.jpg" alt="A man's hands holding a worn, antique baseball glove, wearing a vintage-style pinstripe jersey" loading="eager">
+    </div>
+    <div class="hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy reveal in">
+          <span class="hero-eyebrow">True Crime for Baseball Fans</span>
+          <h1>Some men didn't just love the game. They <em>lied</em> about playing it.</h1>
+          <p class="hook">Over 40 years tracking men who faked a Major League career.</p>
+          <p class="desc">SABR researcher Rob Sheinkopf has spent four decades documenting the strange, very real phenomenon of fake ex-ballplayers — what novelist W.P. Kinsella called "The Eddie Scissons Syndrome." His first book cracks the case files open.</p>
+          <div class="hero-ctas">
+            <button class="btn-primary" id="heroBuyBtn">Buy the Book</button>
+            <a href="#imposter-stories" class="btn-ghost">Share Your Imposter Story</a>
+          </div>
+          <p class="hero-note">Available in hardcover, paperback &amp; Kindle</p>
+        </div>
+        <div class="hero-card reveal">
+          <div class="cover">
+            <span class="top-tag">Case File No. 001</span>
+            <div class="cover-title">Baseball<br>Imposters
+              <em>The Dark Side of Fandom</em>
+            </div>
+            <span class="author-line">Rob Sheinkopf</span>
+          </div>
+          <div class="caption">
+            <span>Hardcover · 312 pp.</span>
+            <span class="stamp">New Release</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY STRIP -->
+  <section class="credibility">
+    <div class="wrap cred-row reveal">
+      <div class="cred-item"><span class="ico">&#9711;</span><div><strong>SABR Member</strong>Society for American Baseball Research</div></div>
+      <div class="cred-item"><span class="ico">&#127942;</span><div><strong>Cooperstown Symposium</strong>Presenter, Baseball Hall of Fame</div></div>
+      <div class="cred-item"><span class="ico">&#9906;</span><div><strong>SF Giants</strong>Former Luxury Suites Concierge, Oracle Park</div></div>
+      <div class="cred-item"><span class="ico">&#9999;</span><div><strong>40 Years Researching</strong>One of the only writers covering fake ballplayers</div></div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="section books" id="books">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Books</span>
+        <h2>Two books. One obsession with the <span class="italic-accent">truth</span> of the game.</h2>
+        <p>An investigative dive into baseball's strangest con — paired with a warmer collection about the bonds the sport actually builds.</p>
+      </div>
+
+      <div class="book-feature reveal">
+        <div class="book-visual">
+          <div class="cover-lg dark">
+            <span class="top-tag">Nonfiction &middot; Baseball</span>
+            <div class="cv-title">Baseball<br>Imposters<em>The Dark Side of Fandom</em></div>
+            <span class="cv-author">Rob Sheinkopf</span>
+          </div>
+        </div>
+        <div class="book-copy">
+          <span class="eyebrow">Book One</span>
+          <h3>Baseball Imposters: The Dark Side of Fandom</h3>
+          <p>For over forty years, Rob Sheinkopf has tracked down the men who claimed they played Major League Baseball — and never did. Barflies, obituaries, old-timer's day crashers: men who built entire identities on a career that never happened.</p>
+          <p class="quote">"What W.P. Kinsella called the Eddie Scissons Syndrome, named for the fraudulent old pitcher in <em>Shoeless Joe</em> — the novel behind <em>Field of Dreams</em>."</p>
+          <p>This is investigative nonfiction with the pacing of a mystery: part sports history, part psychological case study of why ordinary men risk everything to claim a diamond they never stood on.</p>
+          <div class="book-ctas">
+            <button class="btn-buy" data-book="imposters">Buy the Book</button>
+            <a href="#imposter-stories" class="btn-outline">Read the Case Files</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-feature reverse reveal">
+        <div class="book-visual">
+          <div class="cover-lg warm">
+            <span class="top-tag">Nonfiction &middot; Family</span>
+            <div class="cv-title">Hey Mom,<br>Wanna Have a<br>Catch?<em>49 Stories of Baseball &amp; Family</em></div>
+            <span class="cv-author">Rob Sheinkopf</span>
+          </div>
+        </div>
+        <div class="book-copy">
+          <span class="eyebrow">Book Two</span>
+          <h3>"Hey Mom, Wanna Have a Catch?"</h3>
+          <p>The warmer companion to <em>Baseball Imposters</em> — 49 true, short stories about parents passing a love of the game on to their kids. No fabricated careers here, just the real thing: a ball, a glove, and a few minutes in the backyard.</p>
+          <p>Where <em>Baseball Imposters</em> asks why men lie about the game, this collection shows exactly what's worth telling the truth about.</p>
+          <div class="book-ctas">
+            <button class="btn-buy" data-book="catch">Buy the Book</button>
+            <a href="#contact" class="btn-outline">Request a Reading</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY MARKERS / STATS -->
+  <section class="markers" id="markers">
+    <div class="wrap">
+      <div class="markers-head reveal">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">Why Trust the Research</span>
+          <h2>Nobody else has spent this long on it.</h2>
+        </div>
+        <figure class="archival-photo">
+          <img src="assets/vintage-fans.jpg" alt="Archival photo of baseball fans lining up to enter Dugdale Park in Seattle, 1921" loading="lazy">
+          <figcaption>Fans at the gate, 1921 — the era where the earliest imposter claims took root.</figcaption>
+        </figure>
+      </div>
+      <div class="marker-grid">
+        <div class="marker-card reveal">
+          <div class="num">40+</div>
+          <h4>Years of Field Research</h4>
+          <p>Interviews, newspaper archives, and old-timer's day sightings collected since the late 1970s.</p>
+        </div>
+        <div class="marker-card reveal">
+          <div class="num">SABR</div>
+          <h4>Society for American Baseball Research</h4>
+          <p>Active member and presenter at the Cooperstown Symposium, held at the Baseball Hall of Fame.</p>
+        </div>
+        <div class="marker-card reveal">
+          <div class="num">SF</div>
+          <h4>Inside the Ballpark</h4>
+          <p>Former Luxury Suites Concierge for the San Francisco Giants — a front-row seat to the culture around the game.</p>
+        </div>
+      </div>
+      <div class="stat-strip reveal">
+        <div class="stat"><div class="figure" data-count="40">0<span class="suffix">+</span></div><div class="label">Years Researching</div></div>
+        <div class="stat"><div class="figure" data-count="49">0</div><div class="label">Family Stories Collected</div></div>
+        <div class="stat"><div class="figure" data-count="2">0</div><div class="label">Published Books</div></div>
+        <div class="stat"><div class="figure" data-count="100">0<span class="suffix">+</span></div><div class="label">Imposter Cases Documented</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:var(--brass-bright)">Early Reviews</span>
+        <h2 style="color:#fbf4e3">Readers — and researchers — are talking.</h2>
+      </div>
+      <div class="t-grid">
+        <div class="t-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote-txt">"I've read a hundred baseball books. I'd never heard of this subject until Sheinkopf's. Genuinely original."</p>
+          <div class="who"><strong>Daniel R.</strong> — SABR member, Boston chapter</div>
+        </div>
+        <div class="t-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote-txt">"Equal parts detective story and love letter to the game. I couldn't put it down."</p>
+          <div class="who"><strong>Marjorie T.</strong> — Goodreads reviewer</div>
+        </div>
+        <div class="t-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote-txt">"'Hey Mom, Wanna Have a Catch?' made me call my father. That's the whole review."</p>
+          <div class="who"><strong>Pete A.</strong> — Reader, Syracuse NY</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPOSTER STORIES / BENTO -->
+  <section class="section imposter" id="imposter-stories">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Open Case File</span>
+        <h2>Know a guy who claimed he played in <span class="italic-accent">The Show</span>?</h2>
+        <p>Every book started with a tip. Submit your own imposter story — the barroom legend, the uncle with the "tryout," the obituary that didn't add up — and it may be featured in the Imposter Files archive.</p>
+      </div>
+      <div class="bento">
+        <form class="bento-form reveal" id="imposterForm">
+          <h3>Share Your Imposter Story</h3>
+          <p>Fill in what you know. Vague is fine — Rob has cracked cases with less.</p>
+          <div class="form-row">
+            <div class="field"><label for="f-name">Your Name</label><input id="f-name" name="name" type="text" placeholder="Jane Doe" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="jane@example.com" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="f-team">Team / Era Claimed</label><input id="f-team" name="team" type="text" placeholder="e.g. '62 Mets, or 'just said pro ball'"></div>
+            <div class="field"><label for="f-photo">Photo (optional)</label><input id="f-photo" name="photo" type="file" accept="image/*"></div>
+          </div>
+          <div class="form-row">
+            <div class="field full"><label for="f-story">The Story</label><textarea id="f-story" name="story" placeholder="Tell it like you'd tell it at a bar..." required></textarea></div>
+          </div>
+          <button type="submit" class="btn-buy">Submit Story</button>
+          <p class="form-note">Submissions route to Rob directly. This form is a mockup — it will open your email client with the details prefilled.</p>
+        </form>
+        <div class="bento-side">
+          <div class="case-card reveal">
+            <span class="file-no">#014</span>
+            <span class="tag">Imposter File</span>
+            <h4>"The Phantom Shortstop"</h4>
+            <p>Claimed three seasons with a Triple-A club that — per the records — never existed under that name.</p>
+          </div>
+          <div class="case-card reveal">
+            <span class="file-no">#027</span>
+            <span class="tag">Imposter File</span>
+            <h4>"Old-Timer's Day Regular"</h4>
+            <p>Attended the same minor-league alumni event for a decade before anyone checked the roster.</p>
+          </div>
+          <div class="case-card reveal">
+            <span class="file-no">#031</span>
+            <span class="tag">Imposter File</span>
+            <h4>"The Obituary Error"</h4>
+            <p>A small-town paper ran a eulogy crediting a man with a big-league debut that never happened. Nobody corrected it for 20 years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <img src="assets/vintage-team.jpg" alt="Black-and-white team portrait of a vintage amateur baseball club, the kind of archival photo Sheinkopf researches for imposter claims" loading="lazy">
+          <div class="float-card">
+            <div class="big">1978</div>
+            <span>The year Rob started collecting imposter stories, long before anyone called it research.</span>
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">About Rob</span>
+          <h2>A retired higher-ed professional who never stopped chasing the truth about the game.</h2>
+          <p>Rob Sheinkopf is a retired higher-education professional based in Syracuse, NY, and a lifelong student of baseball's stranger margins. For more than 40 years, he's collected stories of men who falsely claimed to have played Major League Baseball — a quiet obsession that eventually became <em>Baseball Imposters: The Dark Side of Fandom</em>.</p>
+          <p>He's an active member of the Society for American Baseball Research (SABR) and has presented his findings at the Cooperstown Symposium, held at the National Baseball Hall of Fame. Along the way, he also worked as a Luxury Suites Concierge for the San Francisco Giants — close enough to the real thing to spot a fake one coming.</p>
+          <ul class="bio-facts">
+            <li>Based in Syracuse, New York</li>
+            <li>SABR member &amp; Cooperstown Symposium presenter</li>
+            <li>Former Luxury Suites Concierge, San Francisco Giants</li>
+            <li>Author of two baseball nonfiction titles with very different tones — one investigative, one heartfelt</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="wrap nl-inner">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--brass-bright)">Stay in the Loop</span>
+        <h2>Get new imposter files before anyone else.</h2>
+        <p>One email a month: newly verified imposter cases, event dates, and the occasional excerpt. No spam, no trades.</p>
+      </div>
+      <form class="nl-form reveal" id="newsletterForm">
+        <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section events" id="events">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Appearances</span>
+        <h2>Readings, talks &amp; signings</h2>
+      </div>
+      <div class="event-list reveal">
+        <div class="event-row">
+          <div class="date">Mar 14<small>2027</small></div>
+          <div><h4>Book Talk &amp; Signing</h4><p>Syracuse Public Library, Local Authors Series — Syracuse, NY</p></div>
+          <a href="#contact" class="btn-outline">Details</a>
+        </div>
+        <div class="event-row">
+          <div class="date">Jul 09<small>2027</small></div>
+          <div><h4>Cooperstown Symposium</h4><p>SABR Symposium on Baseball and American Culture — Cooperstown, NY</p></div>
+          <a href="#contact" class="btn-outline">Details</a>
+        </div>
+        <div class="event-row">
+          <div class="date">Sep 22<small>2027</small></div>
+          <div><h4>Podcast: The Imposter Files</h4><p>Guest appearance discussing 40 years of research — Virtual</p></div>
+          <a href="#contact" class="btn-outline">Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA / CONTACT -->
+  <section class="section" id="contact" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:var(--sp-6);">
+        <span class="eyebrow">Get in Touch</span>
+        <h2>Invite Rob to speak, or just say hello.</h2>
+        <p>For speaking requests, media inquiries, or to share a lead on an imposter story, reach out below.</p>
+      </div>
+      <div class="about-grid reveal" style="align-items:center;">
+        <div>
+          <p style="margin-bottom:var(--sp-3);"><strong>Email:</strong> <a href="mailto:hello@robsheinkopf.com" style="color:var(--clay);">hello@robsheinkopf.com</a></p>
+          <p style="margin-bottom:var(--sp-3);"><strong>Phone:</strong> <a href="tel:+13155550142" style="color:var(--clay);">(315) 555-0142</a></p>
+          <p style="margin-bottom:var(--sp-5);"><strong>Based in:</strong> Syracuse, NY</p>
+          <button class="btn-primary" id="contactBuyBtn">Buy the Book</button>
+        </div>
+        <img src="assets/vintage-stands.jpg" alt="Archival photo of spectators in wooden grandstands at an early-1900s baseball park" loading="lazy" style="border-radius:4px;box-shadow:var(--shadow);">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- RETAILER MODAL -->
+<div class="modal-backdrop" id="retailerModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
+    <h3 id="modalTitle">Where to Buy</h3>
+    <p>Choose your preferred retailer for <em>Baseball Imposters: The Dark Side of Fandom</em>.</p>
+    <ul class="retailer-list">
+      <li><a href="https://www.amazon.com" target="_blank" rel="noopener">Amazon <span class="arrow">&rarr;</span></a></li>
+      <li><a href="https://bookshop.org" target="_blank" rel="noopener">Bookshop.org <span class="arrow">&rarr;</span></a></li>
+      <li><a href="https://www.barnesandnoble.com" target="_blank" rel="noopener">Barnes &amp; Noble <span class="arrow">&rarr;</span></a></li>
+      <li><a href="https://www.amazon.com/kindle-dbs/storefront" target="_blank" rel="noopener">Kindle Edition <span class="arrow">&rarr;</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-wordmark">Rob <em>Sheinkopf</em></div>
+        <p style="margin-top:var(--sp-3);color:#9fb0c3;font-size:0.88rem;max-width:34ch;">Author of <em>Baseball Imposters: The Dark Side of Fandom</em> and <em>"Hey Mom, Wanna Have a Catch?"</em> Based in Syracuse, NY.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#imposter-stories">Imposter Stories</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>More</h5>
+        <ul>
+          <li><a href="#reviews">Reviews</a></li>
+          <li id="giveaway"><a href="#newsletter">Giveaway</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@robsheinkopf.com">hello@robsheinkopf.com</a></li>
+          <li><a href="tel:+13155550142">(315) 555-0142</a></li>
+          <li>Syracuse, NY</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Rob Sheinkopf. All rights reserved.</span>
+      <span>Photo credits: Boston Public Library, State Library &amp; Archives of Florida, MOHAI (public domain); Tessa Bury, Wikimedia Commons (CC BY 4.0) — via Wikimedia Commons</span>
+      <span>Website mockup by Kiran Sen &middot; kirans0615@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js-reveal');
+  // Sticky nav condense
+  var nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var backdrop = document.getElementById('menuBackdrop');
+  var closeBtn = document.getElementById('menuCloseBtn');
+  function openMenu(){
+    mobileMenu.classList.add('open');
+    backdrop.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    backdrop.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  hamburger.addEventListener('click', function(){
+    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click', closeMenu);});
+
+  // Retailer modal
+  var modal = document.getElementById('retailerModal');
+  var modalClose = document.getElementById('modalCloseBtn');
+  function openModal(){ modal.classList.add('open'); }
+  function closeModal(){ modal.classList.remove('open'); }
+  ['heroBuyBtn','navBuyBtn','mobileBuyBtn','contactBuyBtn'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  });
+  document.querySelectorAll('.btn-buy').forEach(function(btn){
+    btn.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  });
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(); closeMenu(); } });
+
+  // Imposter story form -> mailto
+  var imposterForm = document.getElementById('imposterForm');
+  imposterForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('f-name').value;
+    var email = document.getElementById('f-email').value;
+    var team = document.getElementById('f-team').value;
+    var story = document.getElementById('f-story').value;
+    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nTeam/Era Claimed: ' + team + '\n\nStory:\n' + story);
+    window.location.href = 'mailto:hello@robsheinkopf.com?subject=' + encodeURIComponent('Imposter Story Submission') + '&body=' + body;
+  });
+
+  // Newsletter form -> mailto
+  var nlForm = document.getElementById('newsletterForm');
+  nlForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = nlForm.querySelector('input[name="email"]').value;
+    window.location.href = 'mailto:hello@robsheinkopf.com?subject=' + encodeURIComponent('Newsletter Signup') + '&body=' + encodeURIComponent('Please add me to the mailing list: ' + email);
+  });
+
+  // IntersectionObserver reveals
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if(!reduced && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if(entry.isIntersecting){
+          setTimeout(function(){ entry.target.classList.add('in'); }, (i % 6) * 60);
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Counter animation
+  var counters = document.querySelectorAll('.figure[data-count]');
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffixEl = el.querySelector('.suffix');
+    var suffix = suffixEl ? suffixEl.outerHTML : '';
+    var start = 0;
+    var duration = 1400;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var val = Math.floor(progress * target);
+      el.innerHTML = val + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+      else el.innerHTML = target + suffix;
+    }
+    if(reduced){ el.innerHTML = target + suffix; return; }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCounter(entry.target);
+          cio.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.4});
+    counters.forEach(function(c){ cio.observe(c); });
+  } else {
+    counters.forEach(function(c){ animateCounter(c); });
+  }
+})();
+</script>
+
+</body>
+</html>
